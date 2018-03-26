@@ -2,4 +2,54 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swift-4-Auto-Sizing-in-Real-Time/ViewController.swift"
+            timestampString = "543788346.7242481"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "handleKeyboardWillShow(notification:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift_4_Auto_Sizing_in_Real_Time.ViewController.handleKeyboardWillShow(notification: __ObjC.NSNotification) -&gt; ()"
+                  moduleName = "Swift-4-Auto-Sizing-in-Real-Time"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Developer/Development/SWIFT/Swift-4-Auto-Sizing-in-Real-Time-Github/Swift-4-Auto-Sizing-in-Real-Time/ViewController.swift"
+                  timestampString = "543788001.19754"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "2087">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.NSLayoutConstraint) -&gt; Swift.Bool in Swift_4_Auto_Sizing_in_Real_Time.ViewController.handleKeyboardWillShow(notification: __ObjC.NSNotification) -&gt; ()"
+                  moduleName = "Swift-4-Auto-Sizing-in-Real-Time"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Developer/Development/SWIFT/Swift-4-Auto-Sizing-in-Real-Time-Github/Swift-4-Auto-Sizing-in-Real-Time/ViewController.swift"
+                  timestampString = "543788001.20188"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

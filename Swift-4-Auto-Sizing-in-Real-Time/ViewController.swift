@@ -49,13 +49,11 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         let keyboardDuration = (notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! Double)
         print(keyboardSize.height)
         
-        /*textView.constraints.filter {
-            ($0.firstItem === view || $0.secondItem === view) &&
-                ($0.firstAttribute == .bottom || $0.secondAttribute == .bottom)
-            }.first?.constant = -keyboardSize.height*/
-        
+       
+        textView.superview?.constraints.filter({ $0.firstAttribute == .bottom && $0.firstItem as? UITextView == textView }).first!.constant = -keyboardSize.height
+        //bottomConstraint?.constant = -keyboardSize.height
        // textView.constraints.filter { $0.firstAttribute == .bottom }.map { $0.constant = -keyboardSize.height };
-        bottomAnchor?.constant = -keyboardSize.height
+      //  bottomAnchor?.constant = -keyboardSize.height
         UIView.animate(withDuration: keyboardDuration) {
             self.view.layoutIfNeeded()
            
@@ -64,7 +62,8 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     }
     @objc func handleKeyboardWillHide(notification : NSNotification) {
         let keyboardDuration = (notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! Double)
-        bottomAnchor?.constant = 0
+        //bottomAnchor?.constant = 0
+        textView.superview?.constraints.filter({ $0.firstAttribute == .bottom && $0.firstItem as? UITextView == textView }).first!.constant = 0
         UIView.animate(withDuration: keyboardDuration) {
             self.view.layoutIfNeeded()
             
@@ -88,14 +87,14 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         //use auto layout to set my textview frame..kinda
         textView.translatesAutoresizingMaskIntoConstraints = false
         [
-            //textView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            textView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             textView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             textView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             textView.heightAnchor.constraint(equalToConstant: 50)
         ].forEach{ $0.isActive = true }
         
-        bottomAnchor = textView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        bottomAnchor?.isActive = true
+    /*    bottomAnchor = textView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        bottomAnchor?.isActive = true*/
         
         textView.delegate = self
         textViewDidChange(textView)
@@ -108,7 +107,12 @@ extension ViewController : UITextViewDelegate {
         let size = CGSize(width: view.frame.width, height: .infinity)
         let estimatedSize =  textView.sizeThatFits(size)
         
-        textView.constraints.filter { $0.firstAttribute == .height }.map { $0.constant = estimatedSize.height }
+        //textView.constraints.filter { $0.firstAttribute == .height }.map { $0.constant = estimatedSize.height }
+        textView.constraints.forEach { (constraints) in
+            if constraints.firstAttribute == .height {
+                constraints.constant = estimatedSize.height
+            }
+        }
     }
 }
 
